@@ -8,7 +8,7 @@ This domain was originally acquired at the end of 2021 and nothing was ever move
 2 - Geo-IP lookup  
 3 - Pull country name from result  
 4 - Use previous result to pull unformation from JSON file  
-5 - JSON query result is presented to the user
+5 - JSON query result is presented to the user in the form of an HTML web page
 
 ---
 
