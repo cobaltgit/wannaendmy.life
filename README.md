@@ -4,10 +4,10 @@ This domain was originally acquired at the end of 2021 and nothing was ever move
 
 ### How things work
 
-1 - User visits website 
-2 - Geo-IP lookup
-3 - Pull country name from result
-4 - Use previous result to pull unformation from JSON file
+1 - User visits website  
+2 - Geo-IP lookup  
+3 - Pull country name from result  
+4 - Use previous result to pull unformation from JSON file  
 5 - JSON query result is presented to the user
 
 ---

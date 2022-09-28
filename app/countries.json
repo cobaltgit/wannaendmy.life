@@ -1,0 +1,9 @@
+{
+    "GB": {"number": "116 123", "website": "https://samaritans.org", "alt": "Text SHOUT to 85258"},
+    "US": {"number": "988", "website": "https://988lifeline.org", "alt": "Text HOME to 741741"},
+    "IE": {"number": "116 123", "website": "https://samaritans.ie", "alt": "Text HELLO to 50808"},
+    "CA": {"number": "(833) 456-4566", "website": "https://talksuicide.ca", "alt": "Text 46545"},
+    "AU": {"number": "13 11 14", "website": "https://lifeline.org.au", "alt": "Text 0477 13 11 14"},
+    "NZ": {"number": "0800 543 354", "website": "https://lifeline.org.nz", "alt": "Text HELP to 4357"},
+    "DZ": {"number": "0021 3983 2000 58"}
+}

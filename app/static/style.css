@@ -1,0 +1,10 @@
+html {
+    background-color: lightgrey;
+    color: green;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+div#info {
+    font-weight: bold;
+}
