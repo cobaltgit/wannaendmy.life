@@ -3,13 +3,13 @@ from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse
 from starlette.templating import _TemplateResponse
 
-from app import api, utils
+from app import api, utils, hotlines
 
 
 @api.get("/")
 async def root(request: Request) -> _TemplateResponse:
     code = await utils.get_code(request.client.host)
-    info = api.hotlines[code]
+    info = hotlines[code]
     return api.templates.TemplateResponse(
         "index.html",
         {
@@ -25,8 +25,8 @@ async def root(request: Request) -> _TemplateResponse:
 @api.get("/{code}")
 async def code(code: str) -> JSONResponse:
     code = code.upper()
-    if code in api.hotlines and len(code) == 2:
-        return api.hotlines[code]
+    if entry := hotlines.get(code) and len(entry) == 2:
+        return entry
     else:
         raise HTTPException(
             status_code=404,

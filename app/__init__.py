@@ -1,13 +1,14 @@
 import json
 from pathlib import Path
+from typing import Dict
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-__all__ = ("api", "views", "utils")
+__all__ = ("api", "views", "utils", "hotlines")
 
-_dirname = Path(__file__).parent.absolute()
+_dirname: Path = Path(__file__).parent.absolute()
 
 api = FastAPI(
     name="Suicide Prevention Hotlink",
@@ -19,8 +20,8 @@ api.mount("/static", StaticFiles(directory=_dirname / "static"), name="static")
 
 api.templates = Jinja2Templates(directory=_dirname / "templates")
 
-api.hotlines = json.loads((_dirname / "countries.json").read_text())
+hotlines: Dict[str, Dict[str, str]] = json.loads((_dirname / "countries.json").read_text())
 
 from app import views, utils
 
-del _dirname, json, FastAPI, StaticFiles, Jinja2Templates, Path
+del _dirname, json, FastAPI, StaticFiles, Jinja2Templates, Path, Dict
