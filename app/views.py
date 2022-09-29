@@ -3,7 +3,7 @@ from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse
 from starlette.templating import _TemplateResponse
 
-from app import api, utils, hotlines
+from app import api, hotlines, utils
 
 
 @api.get("/")

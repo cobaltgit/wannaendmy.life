@@ -22,6 +22,6 @@ api.templates = Jinja2Templates(directory=_dirname / "templates")
 
 hotlines: Dict[str, Dict[str, str]] = json.loads((_dirname / "countries.json").read_text())
 
-from app import views, utils
+from app import utils, views
 
 del _dirname, json, FastAPI, StaticFiles, Jinja2Templates, Path, Dict

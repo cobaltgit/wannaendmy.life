@@ -1,11 +1,12 @@
 import aiohttp
 
+
 async def get_code(ip: str = "127.0.0.1") -> str:
     """Obtain the ISO 3166-1 alpha-2 country code based on an IP address
-    
+
     Args:
         ip (str): The IP address to resolve
-    
+
     Returns:
         str -- The two-character country code associated with the IP address"""
     async with aiohttp.ClientSession() as cs:
