@@ -3,35 +3,30 @@ from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse
 from starlette.templating import _TemplateResponse
 
-from app import app
+from app import api, utils
 
 
-@app.get("/")
+@api.get("/")
 async def root(request: Request) -> _TemplateResponse:
-    async with aiohttp.ClientSession() as cs:
-        if ip := request.client.host == "127.0.0.1":
-            async with cs.get("https://api.ipify.org") as pub_ip:
-                ip = await pub_ip.text()
-        async with cs.get(f"https://ipinfo.io/{ip.strip()}/country") as rq:
-            code = (await rq.text()).strip()
-            info = app.hotlines[code]
-            return app.templates.TemplateResponse(
-                "index.html",
-                {
-                    "request": request,
-                    "country": code,
-                    "number": info.get("number"),
-                    "website": info.get("website"),
-                    "alt": info.get("alt"),
-                },
-            )
+    code = await utils.get_code(request.client.host)
+    info = api.hotlines[code]
+    return api.templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "country": code,
+            "number": info.get("number"),
+            "website": info.get("website"),
+            "alt": info.get("alt"),
+        },
+    )
 
 
-@app.get("/{code}")
+@api.get("/{code}")
 async def code(code: str) -> JSONResponse:
     code = code.upper()
-    if code in app.hotlines and len(code) == 2:
-        return app.hotlines[code]
+    if code in api.hotlines and len(code) == 2:
+        return api.hotlines[code]
     else:
         raise HTTPException(
             status_code=404,
