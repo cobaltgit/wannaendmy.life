@@ -4,11 +4,11 @@ This domain was originally acquired at the end of 2021 and nothing was ever move
 
 ### How things work
 
-1 - User visits website 
-2 - Geo-IP lookup
-3 - Pull country name from result
-4 - Use previous result to pull unformation from JSON file
-5 - JSON query result is presented to the user
+1 - User visits website  
+2 - Geo-IP lookup  
+3 - Pull ISO 3166-1 alpha-2 country code from result  
+4 - Use previous result to pull information from JSON file  
+5 - JSON query result is presented to the user in the form of an HTML web page
 
 ---
 
