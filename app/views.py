@@ -25,8 +25,8 @@ async def root(request: Request) -> _TemplateResponse:
 @api.get("/{code}")
 async def code(code: str) -> JSONResponse:
     code = code.upper()
-    if entry := hotlines.get(code) and len(entry) == 2:
-        return entry
+    if code in hotlines and len(code) == 2:
+        return hotlines[code]
     else:
         raise HTTPException(
             status_code=404,
